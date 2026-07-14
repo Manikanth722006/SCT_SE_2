@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CipherX - Image Encryption & Decryption Website
 
 A complete, production-quality web application for encrypting and decrypting images using pixel manipulation with the XOR encryption algorithm. Built with Flask, this project was developed as part of the SkillCraft Technology Internship.
@@ -263,3 +264,7 @@ For questions or feedback, please use the contact form on the website or email s
 ---
 
 **Note**: This is a demonstration project for educational purposes. For production use, consider implementing additional security measures such as HTTPS, user authentication, and more robust encryption algorithms.
+=======
+# SCT_SE_2
+🔐 A web-based image encryption and decryption tool built with Flask using XOR pixel manipulation for secure image processing
+>>>>>>> e54bfb781c551e334777f780d7c94f9cf0f9ae12
