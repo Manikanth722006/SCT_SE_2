@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CipherX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="bi bi-shield-lock"></i>
+                <span>CipherX</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About CipherX</h1>
+            <p>Learn about image encryption and how our tool protects your images</p>
+        </div>
+    </section>
+
+    <!-- What is Image Encryption -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <h2>What is Image Encryption?</h2>
+                <p>Image encryption is the process of encoding image data to make it unreadable to unauthorized users. It transforms the original image into an encrypted form that can only be decrypted with the correct key. This protects sensitive images from being viewed or modified by unauthorized parties.</p>
+                <p>Our tool uses pixel-level encryption, which means each individual pixel in the image is modified according to a mathematical algorithm, making the encrypted image appear as random noise without the proper decryption key.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- XOR Encryption -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="bi bi-code-slash"></i>
+                </div>
+                <h2>What is XOR Encryption?</h2>
+                <p>XOR (Exclusive OR) encryption is a simple yet effective encryption method that uses the XOR bitwise operation. The XOR operation has a unique property: it's reversible. If you XOR a value with a key, you get an encrypted value. If you XOR that encrypted value with the same key again, you get back the original value.</p>
+                
+                <div class="xor-diagram">
+                    <div class="xor-row">
+                        <span class="xor-label">Original:</span>
+                        <span class="xor-value">10101010</span>
+                    </div>
+                    <div class="xor-row">
+                        <span class="xor-label">Key:</span>
+                        <span class="xor-value">11001100</span>
+                    </div>
+                    <div class="xor-row">
+                        <span class="xor-label">XOR:</span>
+                        <span class="xor-value">01100110</span>
+                    </div>
+                    <div class="xor-row">
+                        <span class="xor-label">Result:</span>
+                        <span class="xor-value encrypted">01100110</span>
+                    </div>
+                </div>
+                
+                <p>This property makes XOR encryption perfect for image encryption because the same operation can be used for both encryption and decryption, simplifying the implementation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pixel Manipulation -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="bi bi-grid-3x3"></i>
+                </div>
+                <h2>How Pixel Manipulation Works</h2>
+                <p>Every digital image is composed of pixels, and each pixel has three color channels: Red (R), Green (G), and Blue (B). Each channel has a value between 0 and 255. Our encryption tool applies the XOR operation to each of these color channels using your secret key.</p>
+                
+                <div class="pixel-diagram">
+                    <div class="pixel-box">
+                        <h3>Original Pixel</h3>
+                        <div class="pixel-channels">
+                            <div class="channel red">
+                                <span>R: 200</span>
+                                <div class="channel-bar" style="width: 78%;"></div>
+                            </div>
+                            <div class="channel green">
+                                <span>G: 150</span>
+                                <div class="channel-bar" style="width: 59%;"></div>
+                            </div>
+                            <div class="channel blue">
+                                <span>B: 100</span>
+                                <div class="channel-bar" style="width: 39%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pixel-arrow">
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                    
+                    <div class="pixel-box">
+                        <h3>XOR with Key: 42</h3>
+                        <div class="pixel-channels">
+                            <div class="channel red">
+                                <span>R: 242</span>
+                                <div class="channel-bar" style="width: 95%;"></div>
+                            </div>
+                            <div class="channel green">
+                                <span>G: 176</span>
+                                <div class="channel-bar" style="width: 69%;"></div>
+                            </div>
+                            <div class="channel blue">
+                                <span>B: 74</span>
+                                <div class="channel-bar" style="width: 29%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>By applying this operation to every pixel in the image, we transform the entire image into an encrypted version that looks like random noise. Only someone with the correct key can reverse the process and recover the original image.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="bi bi-lightning-charge"></i>
+                    <h3>Fast Processing</h3>
+                    <p>Quick encryption and decryption of images using efficient algorithms</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-shield-lock"></i>
+                    <h3>Secure</h3>
+                    <p>Your images are protected with XOR encryption using your secret key</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <h3>Reversible</h3>
+                    <p>Same operation works for both encryption and decryption</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-file-earmark-image"></i>
+                    <h3>Multiple Formats</h3>
+                    <p>Supports PNG, JPG, and JPEG image formats</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>CipherX</span>
+                </div>
+                <p>Secure Image Encryption & Decryption Tool</p>
+                <div class="footer-links">
+                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                </div>
+                <p class="footer-copyright">&copy; 2024 CipherX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
